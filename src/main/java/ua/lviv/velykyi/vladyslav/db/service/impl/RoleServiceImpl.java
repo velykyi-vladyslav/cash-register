@@ -41,4 +41,13 @@ public class RoleServiceImpl implements RoleService {
     public void delete(Role role) {
         dao.delete(role);
     }
+
+    @Override
+    public Role findById(int id) {
+        return dao.findAll()
+                .stream()
+                .filter(role -> role.getId()==id)
+                .findFirst()
+                .orElse(null);
+    }
 }

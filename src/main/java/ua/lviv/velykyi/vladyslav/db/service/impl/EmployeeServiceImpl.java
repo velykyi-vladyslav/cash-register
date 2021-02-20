@@ -11,7 +11,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private static final Logger log = Logger.getLogger(EmployeeServiceImpl.class);
     private EmployeeDAO dao;
 
-    public EmployeeServiceImpl(EmployeeDAO employeeDAO) {
+    public EmployeeServiceImpl() {
         dao = new EmployeeDAO();
     }
 
