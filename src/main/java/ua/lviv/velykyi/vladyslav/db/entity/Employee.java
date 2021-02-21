@@ -9,7 +9,7 @@ public class Employee extends Entity {
     private String name;
     //max 20
     private String surname;
-    private int roleId;
+    private long roleId;
     private int localeId;
 
     public Employee() {
@@ -47,11 +47,11 @@ public class Employee extends Entity {
         this.surname = surname;
     }
 
-    public int getRoleId() {
+    public long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(long roleId) {
         this.roleId = roleId;
     }
 

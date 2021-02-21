@@ -43,7 +43,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role findById(int id) {
+    public Role findById(long id) {
         return dao.findAll()
                 .stream()
                 .filter(role -> role.getId()==id)

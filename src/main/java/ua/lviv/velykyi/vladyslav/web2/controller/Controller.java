@@ -43,7 +43,7 @@ public class Controller extends HttpServlet {
 
         // execute command and get forward address
         String forward = command.execute(request, response);
-
+        log.debug(forward);
 
         // if the forward address is not null go to the address
         if (forward != null) {

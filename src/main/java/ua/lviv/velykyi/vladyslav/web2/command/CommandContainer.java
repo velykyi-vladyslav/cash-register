@@ -15,6 +15,7 @@ public class CommandContainer {
         // common commands
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
+        commands.put("create employee", new CreateEmployeeCommand());
 
         log.debug("Command container was successfully initialized");
         log.trace("Number of commands --> " + commands.size());

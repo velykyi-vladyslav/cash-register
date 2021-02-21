@@ -5,9 +5,12 @@ public class Path {
 
     //pages
     public static final String PAGE__LOGIN = "/login.jsp";
-    public static final String PAGE__HOME = "/WEB-INF/jsp/home.jsp";
+    public static final String PAGE__HOME_ADMIN = "/WEB-INF/jsp/admin/adminHome.jsp";
+    public static final String PAGE__HOME_CASHIER = "/WEB-INF/jsp/cashier/cashierHome.jsp";
 
     //commands
     public static final String COMMAND__LIST_ORDERS = "/controller?command=listOrders";
     public static final String COMMAND__LIST_MENU = "/controller?command=listMenu";
+
+
 }
