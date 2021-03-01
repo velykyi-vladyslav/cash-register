@@ -14,4 +14,5 @@ public interface ProductService {
     void update(Product product);
     void insert(Product product);
     void delete(Product product);
+    boolean delete(String name, int count);
 }

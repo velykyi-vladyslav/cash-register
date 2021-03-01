@@ -1,0 +1,74 @@
+drop schema if exists cash_register;
+CREATE SCHEMA IF NOT EXISTS cash_register DEFAULT CHARACTER SET utf8;
+USE cash_register;
+
+create table cash_register.roles(
+id int auto_increment primary key,
+name varchar(20) not null unique
+);
+
+create table cash_register.locales(
+id int auto_increment primary key,
+language varchar(50) not null
+);
+
+create table cash_register.employees(
+ id int auto_increment primary key,
+ login varchar(10) not null unique,
+ password varchar(10) not null unique,
+ first_name varchar(20),
+ last_name varchar(20),
+ role_id int not null,
+ locale_id int,
+foreign key (role_id) references roles(id) on delete cascade on update restrict,
+foreign key (locale_id) references locales(id)
+);
+
+create table cash_register.statuses(
+id int not null unique primary key,
+name enum ('created', 'ready', 'cloused', 'canceled')
+);
+
+create table cash_register.receipts(
+id int auto_increment primary key,
+bill decimal not null default 0.00,
+emlpoyee_id int not null,
+status_id int not null,
+foreign key (emlpoyee_id) references employees(id),
+foreign key (status_id) references statuses(id) on delete cascade on update restrict
+);
+
+create table cash_register.categories(
+id int auto_increment primary key,
+name varchar(15) not null unique
+);
+
+create table cash_register.products(
+id int auto_increment primary key,
+name varchar(50) not null,
+price decimal not null,
+category_id int not null,
+foreign key (category_id) references categories(id)
+);
+
+create table cash_register.receipt_products(
+receipt_id int not null,
+product_id int not null,
+amount int not null,
+foreign key (receipt_id) references receipts(id),
+foreign key (product_id) references products(id)
+);
+
+alter table employees
+drop constraint employees_ibfk_2;
+alter table receipt_products
+drop constraint receipt_products_ibfk_2;
+
+insert into roles(name) value ('admin');
+insert into roles(name) value ('cashier');
+insert into roles(name) value ('senior cashier');
+insert into roles(name) value ('commodity expert');
+insert into employees(login, password, role_id) values('root', 'root', 1);
+insert into employees(login, password, role_id) values('c', 'c', 2);
+insert into categories(name) values('milk products');
+insert into products(name, price, category_id) values('milk',13, 1);

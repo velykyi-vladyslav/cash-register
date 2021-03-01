@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    background: grey linear-gradient(rgba(179, 255, 255, 0.5), rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.3));
+    text-align: center;
+}
+#nameDiv{
+    margin-top: 10%;
+}
+
+.input{
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    font-family: "Times New Roman";
+}
+
+

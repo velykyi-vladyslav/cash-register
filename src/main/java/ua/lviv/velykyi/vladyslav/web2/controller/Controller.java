@@ -32,9 +32,6 @@ public class Controller extends HttpServlet {
     private void process(HttpServletRequest request,
                          HttpServletResponse response) throws IOException, ServletException {
 
-
-
-
         // extract command name from the request
         String commandName = request.getParameter("command");
 

@@ -1,6 +1,7 @@
 package ua.lviv.velykyi.vladyslav.db.entity;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Product extends Entity {
     //max 50
@@ -8,6 +9,15 @@ public class Product extends Entity {
 
     private BigDecimal price;
     private long categoryId;
+    private int count;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public String getName() {
         return name;
@@ -31,6 +41,19 @@ public class Product extends Entity {
 
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return name.equals(product.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     @Override

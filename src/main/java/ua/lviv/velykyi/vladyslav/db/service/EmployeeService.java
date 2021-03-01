@@ -10,5 +10,5 @@ public interface EmployeeService {
     Employee findByRole(Long roleId);
     void update(Employee employee);
     void insert(Employee employee);
-    void delete(String login);
+    void delete(long id);
 }

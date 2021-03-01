@@ -1,5 +1,6 @@
 
 import ua.lviv.velykyi.vladyslav.Path;
+import ua.lviv.velykyi.vladyslav.db.bean.EmployeeBean;
 import ua.lviv.velykyi.vladyslav.db.dao.impl.CategoryDAO;
 import ua.lviv.velykyi.vladyslav.db.entity.Category;
 import ua.lviv.velykyi.vladyslav.db.entity.Employee;
@@ -13,20 +14,14 @@ import ua.lviv.velykyi.vladyslav.db.service.impl.RoleServiceImpl;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Optional;
 
 public class App {
     public static void main(String[] args) throws SQLException {
-        Employee employee = new Employee();
-        RoleService roleService = new RoleServiceImpl();
-        EmployeeService employeeService = new EmployeeServiceImpl();
-
-        employee.setName("hello");
-        employee.setSurname("hello");
-        employee.setLogin("hello");
-        employee.setPass("password");
-        employee.setRoleId(1);
-        // employee.setLocaleId();
-        employeeService.insert(employee);
+        boolean b = false;
+        Object o = b;
+        System.out.println(Boolean.FALSE.equals(o));
 
     }
 }

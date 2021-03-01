@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action = "controller" method = "get">
+<form action = "controller" method = "post">
   <input type="hidden" name="command" value="login">
   Login    <input type = "text" name = "login">
   <br />

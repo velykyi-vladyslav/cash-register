@@ -1,0 +1,35 @@
+<%@ include file="/WEB-INF/jspf/taglib/page.jspf" %>
+<%@ include file="/WEB-INF/jspf/taglib/taglib.jspf" %>
+
+<c:choose>
+    <%--===========================================================================
+    ADMIN MENU.
+    ===========================================================================--%>
+    <c:when test="${employeeRole == 'admin' }">
+        Hello:  <c:out value="${employeeLogin}"/>
+    </c:when>
+    <%--===========================================================================
+    CASHIER MENU.
+    ===========================================================================--%>
+    <c:when test="${employeeRole == 'cashier'}">
+       Hello: <c:out value="${employeeLogin}"/>
+    </c:when>
+    <%--===========================================================================
+        SENIOR CASHIER MENU.
+        ===========================================================================--%>
+    <c:when test="${employeeRole == 'senior cashier'}">
+        Hello: <c:out value="${employeeLogin}"/>
+    </c:when>
+    <%--===========================================================================
+       COMMODITY EXPERT MENU.
+       ===========================================================================--%>
+    <c:when test="${employeeRole == 'commodity expert'}">
+        Hello: <c:out value="${employeeLogin}"/>
+    </c:when>
+
+</c:choose>
+
+
+<a href="controller?command=logout">
+    logout
+</a>

@@ -9,8 +9,34 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        <%@include file="/style/cashierPage.css" %>
+    </style>
 </head>
 <body>
-hello cashier
+<table id="functional">
+    <tr>
+        <td>
+            <button onclick=show("createReceipt")>Make receipt</button>
+        </td>
+
+    </tr>
+</table>
+
+<div id="createReceipt">
+    <%@include file="createReceipt.jsp"%>
+</div>
+
+
+<script>
+    function show(formName) {
+        const x = document.getElementById(formName);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>
