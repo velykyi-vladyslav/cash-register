@@ -27,9 +27,9 @@ public class SQLConstant {
     public static final String SQL_EMPLOYEES_DELETE ="delete from employees where id=?;";
 
     //PRODUCTS
-    public static final String SQL_PRODUCTS_INSERT = "insert into products(name, price, category_id) " +
-            "values(?, ?, ?);";
-    public static final String SQL_PRODUCTS_UPDATE = "update products set name=?, price=?, category_id=? " +
+    public static final String SQL_PRODUCTS_INSERT = "insert into products(name, price, quantity, category_id) " +
+            "values(?, ?, ?, ?);";
+    public static final String SQL_PRODUCTS_UPDATE = "update products set name=?, price=?, quantity=?, category_id=? " +
             "where id=?;";
     public static final String SQL_PRODUCTS_DELETE ="delete from products where id=?;";
 }

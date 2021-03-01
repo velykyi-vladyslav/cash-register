@@ -3,10 +3,8 @@ package ua.lviv.velykyi.vladyslav.db.service.impl;
 
 import org.apache.log4j.Logger;
 import ua.lviv.velykyi.vladyslav.db.bean.CategoryBean;
-import ua.lviv.velykyi.vladyslav.db.bean.EmployeeBean;
 import ua.lviv.velykyi.vladyslav.db.dao.impl.CategoryDAO;
 import ua.lviv.velykyi.vladyslav.db.entity.Category;
-import ua.lviv.velykyi.vladyslav.db.entity.Employee;
 import ua.lviv.velykyi.vladyslav.db.service.CategoryService;
 
 import java.util.ArrayList;

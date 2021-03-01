@@ -19,6 +19,7 @@ public class ProductDAO extends GeneralDAO<Product> {
         super();
         setTable(TABLE_NAME);
     }
+
     @Override
     protected Product mapRowForSelect(ResultSet resultSet) {
         Product product = new Product();
@@ -27,6 +28,7 @@ public class ProductDAO extends GeneralDAO<Product> {
             product.setId(resultSet.getLong(Fields.ENTITY__ID));
             product.setName(resultSet.getString(Fields.ENTITY__NAME));
             product.setPrice(resultSet.getBigDecimal(Fields.PRODUCT__PRICE));
+            product.setQuantity(resultSet.getInt(Fields.PRODUCT__QUANTITY));
             product.setCategoryId(resultSet.getLong(Fields.PRODUCT__CATEGORY_ID));
             log.info("Product has been created");
             return product;
@@ -39,7 +41,7 @@ public class ProductDAO extends GeneralDAO<Product> {
 
     @Override
     protected PreparedStatement getStatementForUpdate(Product entity, Connection connection) {
-        return  DefaultPreparedStatementService.getInstance().getUpdateStatement(entity, connection);
+        return DefaultPreparedStatementService.getInstance().getUpdateStatement(entity, connection);
     }
 
     @Override

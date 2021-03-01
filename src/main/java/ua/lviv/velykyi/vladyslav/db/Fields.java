@@ -20,5 +20,6 @@ public final class Fields {
     //PRODUCT
     public static final String PRODUCT__PRICE = "price";
     public static final String PRODUCT__CATEGORY_ID = "category_id";
+    public static final String PRODUCT__QUANTITY = "quantity";
 
 }

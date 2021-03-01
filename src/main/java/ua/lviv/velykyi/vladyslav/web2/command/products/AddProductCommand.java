@@ -18,27 +18,35 @@ import java.math.BigDecimal;
 
 public class AddProductCommand extends Command {
     private static final Logger log = Logger.getLogger(AddProductCommand.class);
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        log.debug("Command starts");
+        log.debug("-- ADD PRODUCT COMMAND STARTS --");
         Product product = new Product();
         CategoryService categoryService = new CategoryServiceImpl();
         ProductService productService = new ProductServiceImpl();
-        product.setName(request.getParameter("name"));
+
+        String name = request.getParameter("name");
         BigDecimal price = new BigDecimal(request.getParameter("price"));
+        long categoryId = categoryService.findByName(request.getParameter("category")).getId();
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
 
         product.setPrice(price);
-        product.setCategoryId(categoryService.findByName(request.getParameter("category")).getId());
+        log.debug("Name of products is " + request.getParameter("name"));
+        product.setName(name);
+        log.debug("Updated price for product is " + price);
 
-        log.debug(request.getParameter("name"));
-        log.debug(price);
-        log.debug(request.getParameter("category"));
-
-        for (int i = 0; i< Integer.parseInt(request.getParameter("count")); i++){
+        if (!productService.isPresent(product)) {
+            product.setCategoryId(categoryId);
+            log.debug("Category for product is " + categoryId);
+            product.setQuantity(quantity);
             productService.insert(product);
+        } else {
+            log.debug("HERE");
+            product = productService.findByName(name);
+            product.setQuantity(productService.getQuantity(product) + quantity);
+            productService.update(product);
         }
-
-
         return Path.PAGE__HOME_COMMODITY_EXPERT;
 
     }

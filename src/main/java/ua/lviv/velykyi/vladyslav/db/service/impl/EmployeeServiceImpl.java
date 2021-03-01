@@ -4,12 +4,9 @@ import org.apache.log4j.Logger;
 import ua.lviv.velykyi.vladyslav.db.bean.EmployeeBean;
 import ua.lviv.velykyi.vladyslav.db.dao.impl.EmployeeDAO;
 import ua.lviv.velykyi.vladyslav.db.entity.Employee;
-import ua.lviv.velykyi.vladyslav.db.entity.Entity;
 import ua.lviv.velykyi.vladyslav.db.service.EmployeeService;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class EmployeeServiceImpl implements EmployeeService {
     private static final Logger log = Logger.getLogger(EmployeeServiceImpl.class);

@@ -39,7 +39,7 @@
                                 <form action="controller" method="post">
                                     <input type="hidden" name="command" value="add product">
                                     <td><input value="${bean.price}"></td>
-                                    <td><input value="${bean.count}"></td>
+                                    <td><input value="${bean.quantity}"></td>
                                     <td><input type="submit" value="Update"></td>
                                 </form>
 

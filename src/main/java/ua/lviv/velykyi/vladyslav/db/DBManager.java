@@ -1,15 +1,12 @@
 package ua.lviv.velykyi.vladyslav.db;
 
-import com.mysql.jdbc.Driver;
 import org.apache.log4j.Logger;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.Properties;
 

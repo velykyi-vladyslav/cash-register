@@ -1,10 +1,8 @@
 package ua.lviv.velykyi.vladyslav.db.service;
 
-import ua.lviv.velykyi.vladyslav.db.entity.Category;
 import ua.lviv.velykyi.vladyslav.db.entity.Receipt;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public interface ReceiptService {
     List<Receipt> findAll();

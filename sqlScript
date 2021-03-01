@@ -47,6 +47,7 @@ create table cash_register.products(
 id int auto_increment primary key,
 name varchar(50) not null,
 price decimal not null,
+quantity int,
 category_id int not null,
 foreign key (category_id) references categories(id)
 );
@@ -69,6 +70,6 @@ insert into roles(name) value ('cashier');
 insert into roles(name) value ('senior cashier');
 insert into roles(name) value ('commodity expert');
 insert into employees(login, password, role_id) values('root', 'root', 1);
-insert into employees(login, password, role_id) values('c', 'c', 2);
+
 insert into categories(name) values('milk products');
 insert into products(name, price, category_id) values('milk',13, 1);

@@ -9,7 +9,7 @@ Product addition
     <input type="hidden" name="command" value="add product">
     Name: <input name="name" required/><br>
     Price: <input name="price" required/><br>
-    Count: <input name="count" type="number" required/><br>
+    Count: <input name="quantity" type="number" required/><br>
     Category: <select name="category" required>
     <c:forEach items="${categoriesBeanList}" var="category">
         <option selected="category">${category.name}</option>

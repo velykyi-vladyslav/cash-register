@@ -8,14 +8,14 @@ public class ProductsBean extends Entity {
     private String name;
     private String price;
     private String category;
-    private String count;
+    private String quantity;
 
-    public String getCount() {
-        return count;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setCount(String count) {
-        this.count = count;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public String getPrice() {

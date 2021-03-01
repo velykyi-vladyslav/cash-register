@@ -13,8 +13,9 @@
 <body>
 
 <form action="controller" method="post">
-    <input type="hidden" name="create receipt">
-    <input type="submit">
+    <input type="hidden" name="create receipt">:
+    <input name="name">
+    <input type="submit" value="Create receipt">
     </form>
 
 

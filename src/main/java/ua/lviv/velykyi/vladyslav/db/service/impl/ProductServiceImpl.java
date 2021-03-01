@@ -1,19 +1,14 @@
 package ua.lviv.velykyi.vladyslav.db.service.impl;
 
 import org.apache.log4j.Logger;
-import ua.lviv.velykyi.vladyslav.db.bean.EmployeeBean;
 import ua.lviv.velykyi.vladyslav.db.bean.ProductsBean;
 import ua.lviv.velykyi.vladyslav.db.dao.impl.ProductDAO;
-import ua.lviv.velykyi.vladyslav.db.entity.Employee;
 import ua.lviv.velykyi.vladyslav.db.entity.Product;
 import ua.lviv.velykyi.vladyslav.db.service.CategoryService;
 import ua.lviv.velykyi.vladyslav.db.service.ProductService;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ProductServiceImpl implements ProductService {
@@ -66,6 +61,16 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public int getQuantity(Product product) {
+        return findByName(product.getName()).getQuantity();
+    }
+
+    @Override
+    public boolean isPresent(Product product) {
+        return dao.findAll().stream().anyMatch(p -> p.getName().equals(product.getName()));
+    }
+
+    @Override
     public void update(Product product) {
         dao.update(product);
     }
@@ -80,6 +85,7 @@ public class ProductServiceImpl implements ProductService {
         dao.delete(product);
     }
 
+    @Override
     public boolean delete(String name, int count) {
         List<Product> products = dao.findAll().stream()
                 .filter(e -> e.getName()
@@ -88,48 +94,26 @@ public class ProductServiceImpl implements ProductService {
         if (count > products.size()) {
             return false;
         }
-        for (int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++) {
             dao.delete(products.get(i));
         }
         return true;
     }
 
     public List<ProductsBean> getBeanList() {
-        List<Product> products = mapProducts(dao.findAll());
+        List<Product> products = dao.findAll();
         List<ProductsBean> productsBeans = new ArrayList<>();
         CategoryService categoryService = new CategoryServiceImpl();
+
         for (Product p : products) {
             ProductsBean productsBean = new ProductsBean();
             productsBean.setId(p.getId());
             productsBean.setName(p.getName());
             productsBean.setPrice(p.getPrice().toString());
             productsBean.setCategory(categoryService.findById(p.getCategoryId()).getName());
-            productsBean.setCount(String.valueOf(p.getCount()));
+            productsBean.setQuantity(String.valueOf(p.getQuantity()));
             productsBeans.add(productsBean);
         }
-
         return productsBeans;
     }
-
-    private List<Product> mapProducts(List<Product> products) {
-        List<Product> mappedProducts = new ArrayList<>();
-        Set<Product> set = new HashSet<>();
-        for (int i = 0; i < products.size(); i++) {
-            for (Product p : products) {
-                if (products.get(i).getName().equals(p.getName())) {
-                    int count = products.get(i).getCount();
-                    products.get(i).setCount(++count);
-                    set.add(products.get(i));
-                }
-            }
-        }
-        for (Product e : set
-        ) {
-            mappedProducts.add(e);
-        }
-        log.debug(mappedProducts);
-        return mappedProducts;
-    }
-
-
 }

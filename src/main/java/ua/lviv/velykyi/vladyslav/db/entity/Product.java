@@ -9,14 +9,14 @@ public class Product extends Entity {
 
     private BigDecimal price;
     private long categoryId;
-    private int count;
+    private int quantity;
 
-    public int getCount() {
-        return count;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getName() {

@@ -125,13 +125,14 @@ public class DefaultPreparedStatementService implements PrepareStatementService 
 
     // PRODUCT
     @Override
-    public PreparedStatement getUpdateStatement(Product entity, Connection connection) {
+    public PreparedStatement getUpdateStatement(Product product, Connection connection) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_PRODUCTS_UPDATE);
-            preparedStatement.setString(1, entity.getName());
-            preparedStatement.setBigDecimal(2, entity.getPrice());
-            preparedStatement.setLong(3, entity.getCategoryId());
-            preparedStatement.setLong(4, entity.getId());
+            preparedStatement.setString(1, product.getName());
+            preparedStatement.setBigDecimal(2, product.getPrice());
+            preparedStatement.setInt(3, product.getQuantity());
+            preparedStatement.setLong(4, product.getCategoryId());
+            preparedStatement.setLong(5, product.getId());
             log.info("Statement is created");
             return preparedStatement;
         } catch (SQLException e) {
@@ -142,12 +143,13 @@ public class DefaultPreparedStatementService implements PrepareStatementService 
     }
 
     @Override
-    public PreparedStatement getInsertStatement(Product entity, Connection connection) {
+    public PreparedStatement getInsertStatement(Product product, Connection connection) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_PRODUCTS_INSERT);
-            preparedStatement.setString(1, entity.getName());
-            preparedStatement.setBigDecimal(2, entity.getPrice());
-            preparedStatement.setLong(3, entity.getCategoryId());
+            preparedStatement.setString(1, product.getName());
+            preparedStatement.setBigDecimal(2, product.getPrice());
+            preparedStatement.setInt(3, product.getQuantity());
+            preparedStatement.setLong(4, product.getCategoryId());
             log.info("Statement is created");
             return preparedStatement;
         } catch (SQLException e) {

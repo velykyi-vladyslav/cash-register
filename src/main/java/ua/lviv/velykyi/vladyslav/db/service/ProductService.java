@@ -15,4 +15,7 @@ public interface ProductService {
     void insert(Product product);
     void delete(Product product);
     boolean delete(String name, int count);
+    int getQuantity(Product product);
+    boolean isPresent(Product product);
+
 }
